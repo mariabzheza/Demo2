@@ -1,3 +1,16 @@
+#My ignores
+target/
+test-output/
+.classpath
+.project
+.settings
+hooks/
+info/
+HEAD
+description
+config
+#
+
 *.class
 
 # Mobile Tools for Java (J2ME)
