@@ -29,6 +29,8 @@ public class LoginTest3 extends TestBasement {
 		driver.findElement(By.id("Email")).clear();
 		driver.findElement(By.id("Email")).sendKeys("m123test1");
 		driver.findElement(By.id("next")).click();
+		
+		
 		element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Passwd")));
 		driver.findElement(By.id("Passwd")).clear();
 		driver.findElement(By.id("Passwd")).sendKeys("My_passw0rd159");

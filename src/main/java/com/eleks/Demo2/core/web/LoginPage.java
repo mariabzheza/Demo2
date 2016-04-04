@@ -2,11 +2,12 @@ package com.eleks.Demo2.core.web;
 
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
+public class LoginPage extends PagesHelper {
 	
-	private final WebDriver driver;
+	private WebDriver driver;
 	
 	public LoginPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		
 		if(!"!!!!!!!!!!!!".equals(driver.getTitle())) {

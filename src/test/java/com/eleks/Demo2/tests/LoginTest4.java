@@ -1,7 +1,5 @@
 package com.eleks.Demo2.tests;
 
-import static org.testng.AssertJUnit.assertEquals;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;

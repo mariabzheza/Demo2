@@ -6,16 +6,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class GmailPage {
+public class GmailPage extends PagesHelper {
 	
-	private String emailId = "Email";
-	private String nextButton = "next";
+	private By emailLocator = By.id("Email");
+	private By nextBtnLocator = By.id("next");
 	
 	protected WebDriverWait wait;
 	protected WebElement element;
-	private final WebDriver driver;
+	
+	private WebDriver driver;
 	
 	public GmailPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		
 		if(!"Gmail".equals(driver.getTitle())) {
@@ -25,30 +27,20 @@ public class GmailPage {
 	
 //	public LoginPage enterEmailGoToLogIn(String email){
 	public WebDriver enterEmailGoToLogIn(String email){
-		typeEmailById(emailId, email);
-		clickButtonById(nextButton);
+		//typeEmailById(emailLocator, email);
+		waitingForElementVisibility(emailLocator);
+		type(emailLocator, email);
+		
+		click(nextBtnLocator);
 		//return new LoginPage(driver);
 		return this.driver;
 	}
 
-	private GmailPage clickButtonById(String string) {
-		driver.findElement(By.id(string)).click();
+	private GmailPage typeEmailById(By Locator, String string) {
+		waitingForElementVisibility(emailLocator);
+		type(emailLocator, string);
 		return this;
 		
-	}
-
-	private GmailPage typeEmailById(String string, String email) {
-		visibilityOfElementLocatedById(string);
-		driver.findElement(By.id(string)).clear();
-		driver.findElement(By.id(string)).sendKeys(email);
-		return this;
-		
-	}
-
-	protected void visibilityOfElementLocatedById(String string) {
-		wait = new WebDriverWait(driver, 10);
-		element = wait.until(
-		        ExpectedConditions.visibilityOfElementLocated(By.id(string)));
 	}
 
 }
