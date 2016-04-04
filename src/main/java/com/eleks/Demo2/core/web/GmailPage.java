@@ -7,11 +7,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GmailPage extends PagesHelper {
 	
+	private By pageLocator = (By.xpath("//title"));
 	private By emailLocator = By.id("Email");
 	private By nextBtnLocator = By.id("next");
 	private By pswdLocator = By.id("Passwd");
 	private By signInLocator = By.id("signIn");
 	private By errorPswdLocator = By.xpath("//span[@id='errormsg_0_Email']");
+	
+	String title = "Gmail";
 	
 	protected WebDriverWait wait;
 	protected WebElement element;
@@ -22,9 +25,9 @@ public class GmailPage extends PagesHelper {
 		super(driver);
 		this.driver = driver;
 		
-		if(!"Gmail".equals(driver.getTitle())) {
+		/*if(!"Gmail".equals(driver.getTitle())) {
 			throw new IllegalStateException("This is not the Gmail page!");
-		}
+		}*/
 	}
 	
 	public GmailPage typeEmail(String email){
@@ -49,6 +52,14 @@ public class GmailPage extends PagesHelper {
 		}
 		
 		return this;
+	}
+
+	@Override
+	public Boolean isPageAvailable() {
+		waitingForElementPresent(pageLocator);
+		if (correctPageByTitle(title)) {
+			return true;
+		} return false;
 	}
 	
 }

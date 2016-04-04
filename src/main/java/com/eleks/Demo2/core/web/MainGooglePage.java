@@ -5,22 +5,30 @@ import org.openqa.selenium.WebDriver;
 
 public class MainGooglePage extends PagesHelper {
 	
-	private By mailLocator = By.xpath("//div/a[contains(@href, 'https://mail.google.com/mail')]");
-	
 	private WebDriver driver;
+	private By mailLocator = By.xpath("//div/a[contains(@href, 'https://mail.google.com/mail')]");
+	private By pageLocator = (By.xpath("//title"));
+	String title = "Google";
+	
 	
 	public MainGooglePage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
-		
-		if(!"Google".equals(driver.getTitle())) {
-			throw new IllegalStateException("This is not the Main Google page!");
-		}
 	}
 	
+	
 	public GmailPage goToLoginOnGmailPage() {
+		waitingForElementPresent(mailLocator);
 		click(mailLocator);
 		return new GmailPage(driver);
+	}
+
+	@Override
+	public Boolean isPageAvailable() {
+		waitingForElementPresent(pageLocator);
+		if (correctPageByTitle(title)) {
+			return true;
+		} return false;
 	}
 
 }

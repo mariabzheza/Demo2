@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.eleks.Demo2.core.TestBasement;
 
-public class PagesHelper extends TestBasement {
+public abstract class PagesHelper extends TestBasement {
 	
 	protected WebDriver driver;
 	protected WebDriverWait wait;
@@ -25,6 +25,8 @@ public class PagesHelper extends TestBasement {
 	public PagesHelper(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	abstract Boolean isPageAvailable();
 
 	protected void type(By locator, String text) {
 		if (text != null) {
@@ -36,6 +38,7 @@ public class PagesHelper extends TestBasement {
 	protected void click(By locator) {
 		driver.findElement(locator).click();
 	}
+	
 //!!!
 	protected void selectByText(By locator, String text) {
 		if (text != null) {
@@ -44,15 +47,29 @@ public class PagesHelper extends TestBasement {
 	}
 	
 	protected void waitingForElementVisibility(By locator) {
-		wait = new WebDriverWait(driver, 10);
+		wait = new WebDriverWait(driver, 30);
 		element = wait.until(
 		        ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
+	protected void waitingForElementPresent(By locator) {
+		wait = new WebDriverWait(driver, 30);
+		element = wait.until(
+				ExpectedConditions.presenceOfElementLocated(locator));
 	}
 	
 	protected void visibilityOfElementLocatedById(String string) {
 		wait = new WebDriverWait(driver, 10);
 		element = wait.until(
 		        ExpectedConditions.visibilityOfElementLocated(By.id(string)));
+	}
+	
+	protected Boolean correctPageByTitle(String title) {
+		if(!title.equals(driver.getTitle())) {
+			String j = driver.getTitle(); 
+			System.out.println("Your page title Is : "+j);
+			throw new IllegalStateException("This is not the "+ title + " page!");
+		} else return true;
 	}
 	
 	
