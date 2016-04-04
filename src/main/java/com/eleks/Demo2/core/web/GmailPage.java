@@ -3,13 +3,14 @@ package com.eleks.Demo2.core.web;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GmailPage extends PagesHelper {
 	
 	private By emailLocator = By.id("Email");
 	private By nextBtnLocator = By.id("next");
+	private By pswLocator = By.id("Passwd");
+	private By signInLocator = By.id("signIn");
 	
 	protected WebDriverWait wait;
 	protected WebElement element;
@@ -25,22 +26,18 @@ public class GmailPage extends PagesHelper {
 		}
 	}
 	
-//	public LoginPage enterEmailGoToLogIn(String email){
-	public WebDriver enterEmailGoToLogIn(String email){
-		//typeEmailById(emailLocator, email);
+	public GmailPage typeEmail(String email){
 		waitingForElementVisibility(emailLocator);
 		type(emailLocator, email);
-		
 		click(nextBtnLocator);
-		//return new LoginPage(driver);
-		return this.driver;
-	}
-
-	private GmailPage typeEmailById(By Locator, String string) {
-		waitingForElementVisibility(emailLocator);
-		type(emailLocator, string);
 		return this;
-		
+	}
+	
+	public InboxGmailPage typePasswordAndSignIn(String password) {
+		waitingForElementVisibility(pswLocator);
+		type(pswLocator, password);
+		click(signInLocator);
+		return new InboxGmailPage(driver);
 	}
 
 }

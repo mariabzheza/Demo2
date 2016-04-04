@@ -5,7 +5,8 @@ import org.openqa.selenium.WebDriver;
 
 public class MainGooglePage extends PagesHelper {
 	
-	private By mailLocator = By.xpath("//div/a[contains(@href, 'https://mail.google.com/mail')]"); 
+	private By mailLocator = By.xpath("//div/a[contains(@href, 'https://mail.google.com/mail')]");
+	
 	private WebDriver driver;
 	
 	public MainGooglePage(WebDriver driver) {
@@ -16,13 +17,6 @@ public class MainGooglePage extends PagesHelper {
 			throw new IllegalStateException("This is not the Main Google page!");
 		}
 	}
-	
-	/*public GmailPage goToLoginOnGmailPage1() {
-		driver.findElement(
-				By.xpath("//div/a[contains(@href, 'https://mail.google.com/mail')]"))
-				.click();
-		return new GmailPage(driver);
-	}*/
 	
 	public GmailPage goToLoginOnGmailPage() {
 		click(mailLocator);
