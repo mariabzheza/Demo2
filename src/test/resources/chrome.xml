@@ -4,7 +4,7 @@
 	<parameter name="browsername" value="chrome"></parameter>
 	<test name="SingleTestSuite1">
 		<classes>
-		    <class name="com.eleks.Demo2.tests.LoginTest3"></class>
+		    <class name="com.eleks.Demo2.tests.LoginTest4"></class>
 		</classes>
 	</test>
 </suite>

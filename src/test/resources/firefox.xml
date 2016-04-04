@@ -5,7 +5,7 @@
 	<test name="SingleTestSuite2">
 		<classes>
 		    <!-- <class name="com.eleks.Demo2.tests.FirstTest1"></class>  -->
-		    <class name="com.eleks.Demo2.tests.LoginTest3"></class>
+		    <class name="com.eleks.Demo2.tests.LoginTest4"></class>
 		</classes>
 	</test>
 	

@@ -9,8 +9,9 @@ public class GmailPage extends PagesHelper {
 	
 	private By emailLocator = By.id("Email");
 	private By nextBtnLocator = By.id("next");
-	private By pswLocator = By.id("Passwd");
+	private By pswdLocator = By.id("Passwd");
 	private By signInLocator = By.id("signIn");
+	private By errorPswdLocator = By.xpath("//span[@id='errormsg_0_Email']");
 	
 	protected WebDriverWait wait;
 	protected WebElement element;
@@ -34,10 +35,20 @@ public class GmailPage extends PagesHelper {
 	}
 	
 	public InboxGmailPage typePasswordAndSignIn(String password) {
-		waitingForElementVisibility(pswLocator);
-		type(pswLocator, password);
+		waitingForElementVisibility(pswdLocator);
+		type(pswdLocator, password);
 		click(signInLocator);
 		return new InboxGmailPage(driver);
 	}
-
+	
+	public GmailPage typeWrongPassword(String password) {
+		waitingForElementVisibility(pswdLocator);
+		type(pswdLocator, password);
+		if(!isElementPresent(errorPswdLocator)){
+			throw new IllegalStateException("Warning about incorrect password is absent!!!");
+		}
+		
+		return this;
+	}
+	
 }

@@ -36,11 +36,8 @@ public class LoginTest4 extends TestBasement {
 		googlePage.goToLoginOnGmailPage();
 		GmailPage gmailPage = new GmailPage(driver);
 		gmailPage.typeEmail("m123test1");
-		gmailPage.typePasswordAndSignIn("My_passw0rd159");
-		
-		//String j = driver.getTitle(); 
-		//System.out.println("Your page title Is : "+j);
-		//Assert.assertTrue(driver.getTitle().endsWith("@gmail.com - Gmail"));
+		gmailPage.typeWrongPassword("My1234");
+		Assert.assertTrue(driver.getTitle().equals("Gmail"));
 	}
 	
 }
