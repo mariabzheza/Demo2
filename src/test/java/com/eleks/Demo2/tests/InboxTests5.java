@@ -25,6 +25,7 @@ public class InboxTests5 extends TestBasement {
 		Assert.assertTrue(inboxPage.isPageAvailable());
 		inboxPage.openMailWithSomeSubject("1 for my Demo");
 		Assert.assertTrue(inboxPage.istextsContainsInBodyAndSubj("1 for my Demo", "type for you"));
+		inboxPage.logOut();
 	}
 	
 	@Test

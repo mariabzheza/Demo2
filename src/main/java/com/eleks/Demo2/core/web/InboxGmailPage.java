@@ -6,6 +6,12 @@ import org.openqa.selenium.WebDriver;
 public class InboxGmailPage extends PagesHelper {
 	
 	private By pageLocator = (By.xpath("//title"));
+	private By accountLocator = (By.xpath("//a/span[@class='gb_1a gbii']"));
+	// accountLocator //a/span[@class='gb_1a gbii']
+	private By quitLocator = (By.xpath("//a[@id='gb_71']"));
+	private By quitLocator1 = (By.xpath("//a[contains(@href, 'https://accounts.google.com/Logout')]"));
+	//quitLocator //a[@id='gb_71']
+	//private By mailLocator = By.xpath("//div/a[contains(@href, 'https://mail.google.com/mail')]");
 	
 	String title = "@gmail.com - Gmail";
 	
@@ -54,8 +60,9 @@ public class InboxGmailPage extends PagesHelper {
 	}
 	
 	public GmailPage logOut() {
-		
-		
+		click(accountLocator);
+		//click(quitLocator);
+		click(quitLocator1);
 		return new GmailPage(driver);
 	}
 	
