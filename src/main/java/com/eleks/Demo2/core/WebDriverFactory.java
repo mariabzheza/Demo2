@@ -1,7 +1,5 @@
 package com.eleks.Demo2.core;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -39,12 +37,15 @@ public class WebDriverFactory {
 	}
 
 	private static void setIEDriver() {
-		System.setProperty("webdriver.ie.driver", "D:\\Tools\\IEDriverServer.exe");
+		//System.setProperty("webdriver.ie.driver", "D:\\Tools\\IEDriverServer.exe");
+		//D:\Education\workspace\Demo2\Tools
+		System.setProperty("webdriver.ie.driver", "D:\\Education\\workspace\\Demo2\\Tools\\IEDriverServer.exe");
 		driver = new InternetExplorerDriver();
 	}
 
 	private static void setChromeDriver() {
-		System.setProperty("webdriver.chrome.driver", "D:\\Tools\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "D:\\Tools\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\Education\\workspace\\Demo2\\Tools\\chromedriver.exe");
 		driver = new ChromeDriver();
 	}
 

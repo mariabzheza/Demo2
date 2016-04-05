@@ -57,6 +57,14 @@ public abstract class PagesHelper extends TestBasement {
 		element = wait.until(
 				ExpectedConditions.presenceOfElementLocated(locator));
 	}
+
+	/*
+	protected void waitingForPageLoad() {
+		IWait<IWebDriver> wait = new OpenQA.Selenium.Support.UI.WebDriverWait(driver, TimeSpan.FromSeconds(30.00));
+
+		 wait.Until(driver1 => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
+	}
+	*/
 	
 	protected void visibilityOfElementLocatedById(String string) {
 		wait = new WebDriverWait(driver, 10);

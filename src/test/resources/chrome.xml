@@ -2,9 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="TestingBasics1" verbose="5">
 	<parameter name="browsername" value="chrome"></parameter>
-	<test name="SingleTestSuite1">
+	<test name="ChromeSingleTestSuite1">
 		<classes>
-		    <class name="com.eleks.Demo2.tests.LoginTest4"></class>
+		    <class name="com.eleks.Demo2.tests.LoginTests4"></class>
+		    <class name="com.eleks.Demo2.tests.InboxTests5"></class>
 		</classes>
 	</test>
 </suite>
