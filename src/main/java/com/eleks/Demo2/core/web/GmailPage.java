@@ -13,6 +13,7 @@ public class GmailPage extends PagesHelper {
 	private By pswdLocator = By.id("Passwd");
 	private By signInLocator = By.id("signIn");
 	private By errorPswdLocator = By.xpath("//span[@id='errormsg_0_Email']");
+	private By inboxLocator = (By.xpath("//title[contains(text(), '@gmail.com - Gmail')]"));
 	
 	String title = "Gmail";
 	
@@ -41,6 +42,7 @@ public class GmailPage extends PagesHelper {
 		waitingForElementVisibility(pswdLocator);
 		type(pswdLocator, password);
 		click(signInLocator);
+		waitingForElementPresent(inboxLocator);
 		return new InboxGmailPage(driver);
 	}
 	

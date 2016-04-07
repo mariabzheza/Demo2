@@ -24,12 +24,12 @@
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-chrome-driver</artifactId>
+			<artifactId>selenium-ie-driver</artifactId>
 			<version>2.53.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-ie-driver</artifactId>
+			<artifactId>selenium-chrome-driver</artifactId>
 			<version>2.53.0</version>
 		</dependency>
 	</dependencies>

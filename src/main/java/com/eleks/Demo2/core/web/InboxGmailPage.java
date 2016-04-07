@@ -7,11 +7,9 @@ public class InboxGmailPage extends PagesHelper {
 	
 	private By pageLocator = (By.xpath("//title"));
 	private By accountLocator = (By.xpath("//a/span[@class='gb_1a gbii']"));
-	// accountLocator //a/span[@class='gb_1a gbii']
-	private By quitLocator = (By.xpath("//a[@id='gb_71']"));
-	private By quitLocator1 = (By.xpath("//a[contains(@href, 'https://accounts.google.com/Logout')]"));
-	//quitLocator //a[@id='gb_71']
-	//private By mailLocator = By.xpath("//div/a[contains(@href, 'https://mail.google.com/mail')]");
+	private By quitLocator = (By.xpath("//a[contains(@href, 'https://accounts.google.com/Logout')]"));
+	private By gmailPageLocator = By.xpath("//title[text() = 'Gmail']");
+	
 	
 	String title = "@gmail.com - Gmail";
 	
@@ -31,7 +29,6 @@ public class InboxGmailPage extends PagesHelper {
 	}
 
 	public InboxGmailPage openMailWithSomeSubject(String string) {
-		//private By subjectLocator = (By.xpath("//span[contains(text(),'1 for my Demo')]"));
 		//private By subjectLocator= (By.xpath(String.format("//span[contains(text(),'%s')]", string)));
 		
 		By locator = By.xpath(String.format("//span[contains(text(),'%s')]", string));
@@ -45,11 +42,11 @@ public class InboxGmailPage extends PagesHelper {
 	
 	public Boolean istextsContainsInBodyAndSubj(String subjStr, String bodyStr) {
 		
-		By subjectLocator = By.xpath(String.format("//h2[contains(text(),'%s')]", subjStr));
 		//subjectLocator in letter page "//h2[contains(text(),'1 for my Demo')]"
+		By subjectLocator = By.xpath(String.format("//h2[contains(text(),'%s')]", subjStr));
 		
-		By bodyLocator = By.xpath(String.format("//tbody//span[contains(text(),'%s')]", bodyStr));
 		//bodyLocator in letter page "//tbody//span[contains(text(),'type for you')]"
+		By bodyLocator = By.xpath(String.format("//tbody//span[contains(text(),'%s')]", bodyStr));
 		
 		if (!isElementPresent(subjectLocator) || !isElementPresent(bodyLocator) ) {
 			
@@ -61,8 +58,8 @@ public class InboxGmailPage extends PagesHelper {
 	
 	public GmailPage logOut() {
 		click(accountLocator);
-		//click(quitLocator);
-		click(quitLocator1);
+		click(quitLocator);
+		waitingForElementPresent(gmailPageLocator);
 		return new GmailPage(driver);
 	}
 	

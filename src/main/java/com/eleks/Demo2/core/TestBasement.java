@@ -18,10 +18,10 @@ public abstract class TestBasement {
 
 	@BeforeMethod
 	@Parameters({ "browsername" })
-	public void setUp(@Optional ("chrome") String browsername) throws Exception {
+	public void setUp(@Optional ("firefox") String browsername) throws Exception {
 		driver = WebDriverFactory.getDriver(browsername);
 		baseUrl = "https://www.google.com.ua";
-		driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
 	@AfterMethod

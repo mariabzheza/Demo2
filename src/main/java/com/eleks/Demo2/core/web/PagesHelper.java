@@ -67,7 +67,7 @@ public abstract class PagesHelper extends TestBasement {
 	*/
 	
 	protected void visibilityOfElementLocatedById(String string) {
-		wait = new WebDriverWait(driver, 10);
+		wait = new WebDriverWait(driver, 30);
 		element = wait.until(
 		        ExpectedConditions.visibilityOfElementLocated(By.id(string)));
 	}

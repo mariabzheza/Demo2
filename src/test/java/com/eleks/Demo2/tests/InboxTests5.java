@@ -14,15 +14,11 @@ public class InboxTests5 extends TestBasement {
 	public void textContainingInMailSubjectAndBodyTest() {
 		driver.get(baseUrl);
 		MainGooglePage googlePage = new MainGooglePage(driver);
-		Assert.assertTrue(googlePage.isPageAvailable());
 		googlePage.goToLoginOnGmailPage();
 		GmailPage gmailPage = new GmailPage(driver);
-		Assert.assertTrue(gmailPage.isPageAvailable());
 		gmailPage.typeEmail("m123test1");
 		gmailPage.typePasswordAndSignIn("My_passw0rd159");
-		Assert.assertTrue(driver.getTitle().endsWith("@gmail.com - Gmail"));
 		InboxGmailPage inboxPage = new InboxGmailPage(driver);
-		Assert.assertTrue(inboxPage.isPageAvailable());
 		inboxPage.openMailWithSomeSubject("1 for my Demo");
 		Assert.assertTrue(inboxPage.istextsContainsInBodyAndSubj("1 for my Demo", "type for you"));
 		inboxPage.logOut();
@@ -32,17 +28,14 @@ public class InboxTests5 extends TestBasement {
 	public void wrongTextContainingInMailSubjectAndBodyTest() {
 		driver.get(baseUrl);
 		MainGooglePage googlePage = new MainGooglePage(driver);
-		Assert.assertTrue(googlePage.isPageAvailable());
 		googlePage.goToLoginOnGmailPage();
 		GmailPage gmailPage = new GmailPage(driver);
-		Assert.assertTrue(gmailPage.isPageAvailable());
 		gmailPage.typeEmail("m123test1");
 		gmailPage.typePasswordAndSignIn("My_passw0rd159");
-		Assert.assertTrue(driver.getTitle().endsWith("@gmail.com - Gmail"));
 		InboxGmailPage inboxPage = new InboxGmailPage(driver);
-		Assert.assertTrue(inboxPage.isPageAvailable());
 		inboxPage.openMailWithSomeSubject("1 for my Demo");
 		Assert.assertFalse(inboxPage.istextsContainsInBodyAndSubj(" tttttttttt fffff cv1 for my Demo", "type for you"));
+		inboxPage.logOut();
 	}
 
 }
