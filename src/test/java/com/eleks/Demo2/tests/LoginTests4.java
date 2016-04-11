@@ -10,7 +10,7 @@ import com.eleks.Demo2.core.web.MainGooglePage;
 
 public class LoginTests4 extends TestBasement {
 	
-	@Test
+	@Test(dependsOnMethods = { "loginWithIncorrectPasswordTest" })
 	public void loginWithCorrectPasswordTest() {
 	
 		driver.get(baseUrl);

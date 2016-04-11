@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="TestingBasics1" verbose="5">
+<suite name="TestingBasicSuite" verbose="5">
 	<suite-files>
 		<!-- Chrome suite -->
 		<suite-file path="chrome.xml" />

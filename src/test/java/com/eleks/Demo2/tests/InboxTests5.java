@@ -10,7 +10,7 @@ import com.eleks.Demo2.core.web.MainGooglePage;
 
 public class InboxTests5 extends TestBasement {
 
-	@Test
+	@Test(priority = 2)
 	public void textContainingInMailSubjectAndBodyTest() {
 		driver.get(baseUrl);
 		MainGooglePage googlePage = new MainGooglePage(driver);
@@ -24,7 +24,7 @@ public class InboxTests5 extends TestBasement {
 		inboxPage.logOut();
 	}
 	
-	@Test
+	@Test(priority = 1)
 	public void wrongTextContainingInMailSubjectAndBodyTest() {
 		driver.get(baseUrl);
 		MainGooglePage googlePage = new MainGooglePage(driver);
