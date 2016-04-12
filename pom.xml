@@ -43,17 +43,15 @@
 						</suiteXmlFiles>
 						<!--<includes> <include>ContactUsTests.java</include> </includes> -->
 						<properties>
-							<property>
+						<!-- The "suitethreadpoolsize" property was disabled because sometimes browser isn't reachable
+						     and some tests are fails. Feature with rerun failed tests is needed...-->
+						<!--<property>
 								<name>suitethreadpoolsize</name>
 								<value>2</value>
-							</property>
+							</property> -->
 							<property>
 								<name>surefire.testng.verbose</name>
 								<value>5</value>
-							</property>
-							<property>
-								<name>rerunFailingTestsCount</name>
-								<value>4</value>
 							</property>
 						</properties>
 					</configuration>
