@@ -38,16 +38,15 @@ public class WebDriverFactory {
 
 	private static void setIEDriver() {
 		//System.setProperty("webdriver.ie.driver", "D:\\Tools\\IEDriverServer.exe");
-		//D:\Education\workspace\Demo2\Tools
-		//System.setProperty("webdriver.ie.driver", "D:\\Education\\workspace\\Demo2\\Tools\\IEDriverServer.exe");
-		//System.setProperty("webdriver.ie.driver", "..\\..\\Tools\\IEDriverServer.exe");
+		//D:\\Education\\workspace\\Demo2\\Tools\\IEDriverServer.exe
+		//System.setProperty("webdriver.ie.driver", "\\Tools\\IEDriverServer.exe");
 		driver = new InternetExplorerDriver();
 	}
 
 	private static void setChromeDriver() {
 		//System.setProperty("webdriver.chrome.driver", "D:\\Tools\\chromedriver.exe");
-		//System.setProperty("webdriver.chrome.driver", "D:\\Education\\workspace\\Demo2\\Tools\\chromedriver.exe");
-		//System.setProperty("webdriver.chrome.driver", "..\\..\\Tools\\chromedriver.exe");
+		//D:\\Education\\workspace\\Demo2\\Tools\\chromedriver.exe
+		//System.setProperty("webdriver.chrome.driver", "\\Tools\\chromedriver.exe");
 		driver = new ChromeDriver();
 	}
 

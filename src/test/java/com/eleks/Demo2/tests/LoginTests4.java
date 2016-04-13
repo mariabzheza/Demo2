@@ -12,7 +12,10 @@ public class LoginTests4 extends TestBasement {
 	
 	@Test(dependsOnMethods = { "loginWithIncorrectPasswordTest" })
 	public void loginWithCorrectPasswordTest() {
-	
+		
+		//File currentDir2 = new File(".");
+        //System.out.println("1 --> " + currentDir2.getAbsolutePath());
+		
 		driver.get(baseUrl);
 		MainGooglePage googlePage = new MainGooglePage(driver);
 		Assert.assertTrue(googlePage.isPageAvailable());
