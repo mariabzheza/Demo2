@@ -20,11 +20,11 @@ public class GmailPage extends PagesHelper {
 	protected WebDriverWait wait;
 	protected WebElement element;
 	
-	private WebDriver driver;
+	//private WebDriver driver;
 	
 	public GmailPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
+		//this.driver = driver;
 		
 		/*if(!"Gmail".equals(driver.getTitle())) {
 			throw new IllegalStateException("This is not the Gmail page!");
@@ -43,7 +43,7 @@ public class GmailPage extends PagesHelper {
 		type(pswdLocator, password);
 		click(signInLocator);
 		waitingForElementPresent(inboxLocator);
-		return new InboxGmailPage(driver);
+		return new InboxGmailPage(this.getDriver());
 	}
 	
 	public GmailPage typeWrongPassword(String password) {

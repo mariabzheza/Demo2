@@ -13,7 +13,7 @@ public class MainGooglePage extends PagesHelper {
 	
 	public MainGooglePage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
+		//this.driver = driver;
 	}
 	
 	

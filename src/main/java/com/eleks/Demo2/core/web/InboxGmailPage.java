@@ -17,7 +17,7 @@ public class InboxGmailPage extends PagesHelper {
 	
 	public InboxGmailPage(WebDriver driver) {
 		super(driver);
-		this.driver = driver;
+		//this.driver = driver;
 	}
 
 	@Override

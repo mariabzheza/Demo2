@@ -27,10 +27,6 @@ public abstract class TestBasement {
 	@AfterMethod
 	public void tearDown() throws Exception {
 		WebDriverFactory.killDriver();
-		String verificationErrorString = verificationErrors.toString();
-		if (!"".equals(verificationErrorString)) {
-			fail(verificationErrorString);
-		}
 	}
 
 }
