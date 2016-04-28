@@ -16,7 +16,7 @@ public class WebDriverFactory {
 	public static WebDriver getDriver(String browsername) throws Exception{
 		if (driver == null){
 			if (FIREFOX.equals(browsername)) {
-				driver = new FirefoxDriver();
+				setFirefoxDriver();
 			} else if (IE.equals(browsername)) {
 				setIEDriver();
 			} else if (CHROME.equals(browsername)) {
@@ -35,16 +35,19 @@ public class WebDriverFactory {
 			driver = null;
 		}
 	}
+	
+	private static void setFirefoxDriver() {
+		driver = new FirefoxDriver();
+	}
 
 	private static void setIEDriver() {
-		//System.setProperty("webdriver.ie.driver", "D:\\Tools\\IEDriverServer.exe");
 		//D:\\Education\\workspace\\Demo2\\Tools\\IEDriverServer.exe
-		//System.setProperty("webdriver.ie.driver", "\\Tools\\IEDriverServer.exe");
+		System.setProperty("webdriver.ie.driver", "\\Tools\\IEDriverServer.exe");
 		driver = new InternetExplorerDriver();
 	}
 
 	private static void setChromeDriver() {
-		System.setProperty("webdriver.chrome.driver", "D:\\Tools\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "\\Tools\\chromedriver.exe");
 		//D:\\Education\\workspace\\Demo2\\Tools\\chromedriver.exe
 		//System.setProperty("webdriver.chrome.driver", "\\Tools\\chromedriver.exe");
 		driver = new ChromeDriver();

@@ -6,20 +6,13 @@ import org.testng.annotations.Test;
 import com.eleks.Demo2.core.TestBasement;
 import com.eleks.Demo2.core.web.GmailPage;
 import com.eleks.Demo2.core.web.InboxGmailPage;
-import com.eleks.Demo2.core.web.MainGooglePage;
 
 public class LoginTests4 extends TestBasement {
 	
-	@Test(dependsOnMethods = { "loginWithIncorrectPasswordTest" })
+	@Test(dependsOnMethods = { "loginWithIncorrectPasswordTest" })	
 	public void loginWithCorrectPasswordTest() {
 		
-		//File currentDir2 = new File(".");
-        //System.out.println("1 --> " + currentDir2.getAbsolutePath());
-		
 		driver.get(baseUrl);
-		MainGooglePage googlePage = new MainGooglePage(driver);
-		Assert.assertTrue(googlePage.isPageAvailable());
-		googlePage.goToLoginOnGmailPage();
 		GmailPage gmailPage = new GmailPage(driver);
 		Assert.assertTrue(gmailPage.isPageAvailable());
 		gmailPage.typeEmail("m123test1");
@@ -33,9 +26,6 @@ public class LoginTests4 extends TestBasement {
 	public void loginWithIncorrectPasswordTest() {
 	
 		driver.get(baseUrl);
-		MainGooglePage googlePage = new MainGooglePage(driver);
-		Assert.assertTrue(googlePage.isPageAvailable());
-		googlePage.goToLoginOnGmailPage();
 		GmailPage gmailPage = new GmailPage(driver);
 		Assert.assertTrue(gmailPage.isPageAvailable());
 		gmailPage.typeEmail("m123test1");

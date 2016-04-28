@@ -10,8 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.eleks.Demo2.core.TestBasement;
-
 public abstract class PagesHelper {
 
 	private WebDriver driver;
@@ -20,7 +18,7 @@ public abstract class PagesHelper {
 
 	private boolean acceptNextAlert = true;
 
-	// protected By findByMethod;
+	//protected By findByMethod;
 
 	public PagesHelper(WebDriver driver) {
 		this.driver = driver;

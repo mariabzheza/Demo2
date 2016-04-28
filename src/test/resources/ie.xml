@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TestingBasics2" verbose="5">
+	<parameter name="browsername" value="ie"></parameter>
+	<test name="IESingleTestSuite2">
+		<classes>
+		    <class name="com.eleks.Demo2.tests.LoginTests4"></class>
+		    <class name="com.eleks.Demo2.tests.InboxTests5"></class>
+		</classes>
+	</test>
+	
+</suite>

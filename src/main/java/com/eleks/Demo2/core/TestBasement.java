@@ -1,7 +1,5 @@
 package com.eleks.Demo2.core;
 
-import static org.testng.Assert.fail;
-
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -14,13 +12,14 @@ public abstract class TestBasement {
 
 	protected WebDriver driver;
 	protected String baseUrl;
-	private StringBuffer verificationErrors = new StringBuffer();
+	//private StringBuffer verificationErrors = new StringBuffer();
 
 	@BeforeMethod
 	@Parameters({ "browsername" })
 	public void setUp(@Optional ("firefox") String browsername) throws Exception {
 		driver = WebDriverFactory.getDriver(browsername);
-		baseUrl = "https://www.google.com.ua";
+		//baseUrl = "https://www.google.com.ua";
+		baseUrl = "https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false#identifier";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 

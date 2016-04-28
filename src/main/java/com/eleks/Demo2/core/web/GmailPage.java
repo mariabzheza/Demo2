@@ -20,15 +20,8 @@ public class GmailPage extends PagesHelper {
 	protected WebDriverWait wait;
 	protected WebElement element;
 	
-	//private WebDriver driver;
-	
 	public GmailPage(WebDriver driver) {
 		super(driver);
-		//this.driver = driver;
-		
-		/*if(!"Gmail".equals(driver.getTitle())) {
-			throw new IllegalStateException("This is not the Gmail page!");
-		}*/
 	}
 	
 	public GmailPage typeEmail(String email){

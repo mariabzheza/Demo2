@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class InboxGmailPage extends PagesHelper {
 	
 	private By pageLocator = (By.xpath("//title"));
-	private By accountLocator = (By.xpath("//a/span[@class='gb_1a gbii']"));
+	private By accountLocator = (By.xpath("//a[contains(@href, 'https://accounts.google.com/SignOutOptions')]/span"));
 	private By quitLocator = (By.xpath("//a[contains(@href, 'https://accounts.google.com/Logout')]"));
 	private By gmailPageLocator = By.xpath("//title[text() = 'Gmail']");
 	

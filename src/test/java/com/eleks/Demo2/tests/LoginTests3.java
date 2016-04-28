@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import com.eleks.Demo2.core.TestBasement;
 
-public class LoginTest3 extends TestBasement {
+public class LoginTests3 extends TestBasement {
 	protected WebDriverWait wait;
 	protected WebElement element;
 
