@@ -5,10 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 public class MainGooglePage extends PagesHelper {
 	
-	private WebDriver driver;
 	private By mailLocator = By.xpath("//div/a[contains(@href, 'https://mail.google.com/mail')]");
 	private By pageLocator = (By.xpath("//title"));
-	String title = "Google";
+	private String title = "Google";
 	
 	public MainGooglePage(WebDriver driver) {
 		super(driver);
@@ -18,11 +17,10 @@ public class MainGooglePage extends PagesHelper {
 	}*/
 	}
 	
-	
 	public GmailPage goToLoginOnGmailPage() {
 		waitingForElementPresent(mailLocator);
 		click(mailLocator);
-		return new GmailPage(driver);
+		return new GmailPage(this.getDriver());
 	}
 
 	@Override

@@ -8,25 +8,31 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class GmailPage extends PagesHelper {
 	
 	private By pageLocator = (By.xpath("//title"));
-	private By emailLocator = By.id("Email");
+	//private By emailLocator = By.id("Email");
+	private By emailLocatorByXPath = By.xpath("//form[@action]//input[@type='email']");
 	private By nextBtnLocator = By.id("next");
 	private By pswdLocator = By.id("Passwd");
 	private By signInLocator = By.id("signIn");
 	private By errorPswdLocator = By.xpath("//span[@id='errormsg_0_Email']");
 	private By inboxLocator = (By.xpath("//title[contains(text(), '@gmail.com - Gmail')]"));
 	
-	String title = "Gmail";
-	
 	protected WebDriverWait wait;
 	protected WebElement element;
+	
+	private String title = "Gmail";
 	
 	public GmailPage(WebDriver driver) {
 		super(driver);
 	}
 	
+	public WebDriver getDriver() {
+		return super.getDriver();
+	}
+	
 	public GmailPage typeEmail(String email){
-		waitingForElementVisibility(emailLocator);
-		type(emailLocator, email);
+		//waitingForElementVisibility(emailLocator);
+		waitingForElementVisibility(emailLocatorByXPath);
+		type(emailLocatorByXPath, email);
 		click(nextBtnLocator);
 		return this;
 	}

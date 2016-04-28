@@ -7,13 +7,11 @@ public class InboxGmailPage extends PagesHelper {
 	
 	private By pageLocator = (By.xpath("//title"));
 	private By accountLocator = (By.xpath("//a[contains(@href, 'https://accounts.google.com/SignOutOptions')]/span"));
-	private By quitLocator = (By.xpath("//a[contains(@href, 'https://accounts.google.com/Logout')]"));
+	//private By quitLocator = (By.xpath("//a[contains(@href, 'https://accounts.google.com/Logout')]"));
+	private By quitLocator = (By.xpath("//div/a[contains(@href, 'https://accounts.google.com/Logout?')]"));
 	private By gmailPageLocator = By.xpath("//title[text() = 'Gmail']");
 	
-	
-	String title = "@gmail.com - Gmail";
-	
-	private WebDriver driver;
+	private String title = "@gmail.com - Gmail";
 	
 	public InboxGmailPage(WebDriver driver) {
 		super(driver);
@@ -23,7 +21,7 @@ public class InboxGmailPage extends PagesHelper {
 	@Override
 	public Boolean isPageAvailable() {
 		waitingForElementPresent(pageLocator);
-		if( !driver.getTitle().contains(title)) {
+		if( !this.getDriver().getTitle().contains(title)) {
 			throw new IllegalStateException("This is not the " + title + " page!");
 		} return true;
 	}
@@ -49,18 +47,18 @@ public class InboxGmailPage extends PagesHelper {
 		By bodyLocator = By.xpath(String.format("//tbody//span[contains(text(),'%s')]", bodyStr));
 		
 		if (!isElementPresent(subjectLocator) || !isElementPresent(bodyLocator) ) {
-			
 			return false;
-		
 		} else
 			return true;
 	}
 	
 	public GmailPage logOut() {
+		waitingForElementVisibility(accountLocator);
 		click(accountLocator);
+		waitingForElementVisibility(quitLocator);
 		click(quitLocator);
 		waitingForElementPresent(gmailPageLocator);
-		return new GmailPage(driver);
+		return new GmailPage(this.getDriver());
 	}
 	
 }

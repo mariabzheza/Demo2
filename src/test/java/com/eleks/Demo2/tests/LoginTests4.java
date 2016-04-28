@@ -15,9 +15,8 @@ public class LoginTests4 extends TestBasement {
 		driver.get(baseUrl);
 		GmailPage gmailPage = new GmailPage(driver);
 		Assert.assertTrue(gmailPage.isPageAvailable());
-		gmailPage.typeEmail("m123test1");
-		gmailPage.typePasswordAndSignIn("My_passw0rd159");
-		Assert.assertTrue(driver.getTitle().endsWith("@gmail.com - Gmail"));
+		gmailPage.typeEmail("m123test1").typePasswordAndSignIn("My_passw0rd159");
+		Assert.assertTrue(gmailPage.getDriver().getTitle().endsWith("@gmail.com - Gmail"));
 		InboxGmailPage inboxPage = new InboxGmailPage(driver);
 		inboxPage.logOut();
 	}
@@ -28,9 +27,9 @@ public class LoginTests4 extends TestBasement {
 		driver.get(baseUrl);
 		GmailPage gmailPage = new GmailPage(driver);
 		Assert.assertTrue(gmailPage.isPageAvailable());
-		gmailPage.typeEmail("m123test1");
-		gmailPage.typeWrongPassword("My1234");
-		Assert.assertTrue(driver.getTitle().equals("Gmail"));
+		gmailPage.typeEmail("m123test1").typeWrongPassword("My1234");
+		//Assert.assertTrue(driver.getTitle().equals("Gmail"));
+		Assert.assertTrue(gmailPage.getDriver().getTitle().equals("Gmail"));
 	}
 	
 }

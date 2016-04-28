@@ -49,7 +49,7 @@ public abstract class PagesHelper {
 	}
 
 	protected void waitingForElementVisibility(By locator) {
-		wait = new WebDriverWait(driver, 30);
+		wait = new WebDriverWait(driver, 50);
 		element = wait.until(ExpectedConditions
 				.visibilityOfElementLocated(locator));
 	}
